@@ -1,0 +1,14 @@
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.resources
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TableManager.resources
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AccountProfile.resources
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Admin.resources

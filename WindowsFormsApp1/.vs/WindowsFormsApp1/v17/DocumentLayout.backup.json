@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\dao\\dataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\dao\\dataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\dao\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\dao\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\dao\\tabledao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\dao\\tabledao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\dto\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\dto\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|c:\\users\\acer\\onedrive - hanoi university of science and technology\\desktop\\\u0111\u1ED3 \u00E1n 1\\windowsformsapp1\\windowsformsapp1\\dto\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12A83011-43A8-4B19-83E3-37CAA0C4D024}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\dto\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,70 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataProvider.cs",
-              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\DataProvider.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\DAO\\DataProvider.cs",
-              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\DataProvider.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\DAO\\DataProvider.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Table.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DTO\\Table.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\DTO\\Table.cs",
+              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DTO\\Table.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\DTO\\Table.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:29:25.619Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\AccountDAO.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\DAO\\AccountDAO.cs",
-              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\AccountDAO.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\DAO\\AccountDAO.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAIwAsAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:16:40.81Z",
+              "WhenOpened": "2025-11-22T10:30:22.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Login.cs",
-              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Login.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA2wCgAAAANAAAAAAAAAA==",
+              "Title": "TableManager.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\TableManager.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\TableManager.cs",
+              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\TableManager.cs [Design]*",
+              "RelativeToolTip": "WindowsFormsApp1\\TableManager.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:09:28.596Z",
+              "WhenOpened": "2025-11-22T10:22:18.332Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MenuDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\MenuDAO.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\DAO\\MenuDAO.cs",
+              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\MenuDAO.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\DAO\\MenuDAO.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAMwA8AAAC/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T09:48:43.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DTO\\Menu.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\DTO\\Menu.cs",
+              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DTO\\Menu.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\DTO\\Menu.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBwAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T09:44:21.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Admin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\Admin.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Admin.cs",
-              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\Admin.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp1\\Admin.cs [Design]",
+              "Title": "TableDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\TableDAO.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\DAO\\TableDAO.cs",
+              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\DAO\\TableDAO.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\DAO\\TableDAO.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:14:59.674Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-22T09:43:09.836Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Login.cs",
-              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\Login.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp1\\Login.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "TableManager.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\TableManager.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\TableManager.cs",
+              "ToolTip": "C:\\Users\\Acer\\OneDrive - Hanoi University of Science and Technology\\Desktop\\\u0111\u1ED3 \u00E1n 1\\WindowsFormsApp1\\WindowsFormsApp1\\TableManager.cs*",
+              "RelativeToolTip": "WindowsFormsApp1\\TableManager.cs*",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwAwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:09:26.647Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-20T08:58:14.029Z",
+              "EditorCaption": ""
             }
           ]
         }

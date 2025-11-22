@@ -85,4 +85,21 @@ VALUES ( N'staff',
 		N'1',
 		0
 		)
-SELECT * FROM dbo.ACCOUNT
+GO
+
+CREATE PROC USP_GetAccountByUserName
+@userName nvarchar(100)
+AS
+BEGIN 
+	SELECT * FROM dbo.ACCOUNT WHERE UserName = @userName
+END
+GO
+
+GO
+CREATE PROC USP_Login
+@userName nvarchar(100), @passWord nvarchar(100)
+AS
+BEGIN
+	SELECT * FROM dbo.ACCOUNT WHERE UserName = @userName AND PassWord = @passWord
+END
+GO

@@ -19,10 +19,23 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             LoadTable();
+            LoadCategory();
         }
-
-        void LoadTable()
+        void LoadCategory()
         {
+            List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
+            cbCategory.DataSource = listCategory;
+            cbCategory.DisplayMember = "Name";
+        }
+        void LoadFoodListByCategoryID(int id)
+        {
+            List<Food> listFood = FoodDAO.Instance.GetFoodByCategoryID(id);
+            cbFood.DataSource = listFood;
+            cbFood.DisplayMember = "Name";
+        }
+        void LoadTable()
+        {   flpTable.Controls.Clear();
+
             List<Table> tableList =  TableDAO.Instance.LoadTableList();
 
             foreach(Table item in tableList)
@@ -58,27 +71,52 @@ namespace WindowsFormsApp1
             }
             CultureInfo culture = new CultureInfo("vi-VN");
 
-            txbTotalPrice.Text = totalPrice.ToString("c",culture);
+            txbTotalPrice.Text = totalPrice.ToString("c",culture);  
+
         }
         private void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            lsvBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
+
+   
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int id = 0;
 
+            ComboBox cb = sender as ComboBox;
+
+            if(cb.SelectedItem == null)
+                return;
+
+            Category selected = cb.SelectedItem as Category;
+            id = selected.ID;
+
+            LoadFoodListByCategoryID(id);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //ADD FOOD
         {
+            Table table = lsvBill.Tag as Table;  
 
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int idFood = (cbFood.SelectedItem as Food).Id;
+            int count = (int)nmFoodCount.Value;
+            if (idBill == -1)
+            {
+                BillDAO.Instance.InsertBill(table.ID);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(),idFood,count);
+            }
+            else
+            {
+                BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+            }
+            ShowBill(table.ID);
+            LoadTable();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -86,9 +124,22 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e) //CHECKOUT
         {
+            Table table = lsvBill.Tag as Table;
 
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+
+            if(idBill != -1)
+            {   
+                if(MessageBox.Show("Bạn có chắc thanh toán hóa đơn cho bàn " + table.Name,"Thông báo",MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+                    LoadTable();
+                }
+                    
+            }
         }
 
         private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
@@ -117,5 +168,17 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void cbFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flpTable_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 }

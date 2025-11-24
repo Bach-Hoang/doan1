@@ -103,3 +103,153 @@ BEGIN
 	SELECT * FROM dbo.ACCOUNT WHERE UserName = @userName AND PassWord = @passWord
 END
 GO
+
+
+GO
+CREATE PROC USP_GetTableList
+AS SELECT * FROM dbo.TableFood
+GO
+
+--Thêm bàn
+DECLARE @i INT = 1
+
+WHILE @i <= 10
+BEGIN
+	INSERT dbo.TableFood (NAME) VALUES (N'Bàn ' + cast(@i AS nvarchar(100)))
+	SET @i = @i + 1
+END
+
+--Thêm category
+INSERT dbo.FOODCATEGORY
+		(name)
+VALUES ( N'H?i s?n')
+
+INSERT dbo.FOODCATEGORY
+		(name)
+VALUES ( N'Nông s?n')
+
+INSERT dbo.FOODCATEGORY
+		(name)
+VALUES ( N'Lâm s?n')
+
+INSERT dbo.FOODCATEGORY
+		(name)
+VALUES ( N'N??c')
+
+--Thêm món ?n
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'M?c',1,100000)
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'Nghêu',1,60000)
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'H??u',3,300000)
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'L?n',2,150000)
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'Coke',4,10000)
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'7Up',4,10000)
+
+--Thêm Bill
+INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null,1,0)
+INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null,2,0)
+INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),getdate(),2,1)
+INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null,3,0)
+ 
+ --Thêm BillInfo
+ INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (1,1,2)
+ INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (1,3,4)
+ INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (1,5,1)
+ INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (2,2,2)
+ INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (2,1,5)
+ INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (3,1,5)
+
+ --reset ID
+ DELETE FROM DBO.BILL
+DBCC CHECKIDENT ('dbo.BillInfo', RESEED, 0);
+select * from dbo.billinfo
+
+GO
+CREATE PROC USP_InsertBill
+@idTable INT
+AS
+BEGIN 
+	INSERT dbo.Bill 
+	( DateCheckIn,
+		DateCheckOut,
+		idTable, 
+		status
+	)
+	VALUES ( GETDATE(),
+				NULL,
+				@idTable,
+				0
+				)
+END 
+GO
+
+GO
+CREATE PROC USP_InsertBillInfo
+@idBill INT, @idFood INT, @count INT
+AS
+BEGIN
+	
+	DECLARE @isExitBillInfo INT
+	DECLARE @foodCount INT = 1
+	SELECT @isExitBillInfo = ID,@foodCount = count FROM dbo.BillInfo WHERE idBill = @idBill AND idFood = @idFood
+
+	IF (@isExitBillInfo>0)
+	BEGIN 
+		DECLARE @newCount INT = @foodCount + @count
+		IF(@newCount > 0)
+			UPDATE dbo.BILLINFO SET count = @foodCount + @count WHERE idFood = @idFood AND IDBILL = @idBill
+		ELSE 
+			DELETE dbo.BILLINFO WHERE IDBILL= @idBill AND IDFOOD = @idFood
+	END
+	ELSE
+	BEGIN
+	INSERT dbo.BILLINFO
+	(	idBill,
+		idFood,
+		Count
+	)
+	VALUES
+	(	@idBill,
+		@idFood,
+		@count
+	)
+	END
+END
+GO
+
+	
+CREATE TRIGGER UTG_UpdateBillInfo
+ON dbo.BillInfo FOR INSERT, UPDATE
+AS 
+BEGIN
+	DECLARE @idBill int
+
+	select @idBill=idBill FROM inserted
+
+	DECLARE @idTable int
+
+	SELECT @idTable=IDTABLE From dbo.BILL where id = @idBill and status = 0
+
+	UPDATE dbo.TableFood SET STATUS = N'Có ng??i' WHERE id=@idTable 
+END
+GO
+
+CREATE TRIGGER UTG_UpdateBill
+ON dbo.Bill FOR UPDATE 
+AS
+BEGIN
+	DECLARE @idBill INT
+
+	SELECT @idBill = id FROM inserted
+
+	DECLARE @idTable int
+
+	SELECT @idTable=IDTABLE From dbo.BILL where id = @idBill
+	
+	DECLARE @count INT
+
+	SELECT @count = count(*) FROM dbo.Bill WHERE IDTABLE = @idTable and status = 0
+
+	IF(@count = 0)
+		UPDATE dbo.TableFood SET STATUS = N'Tr?ng' WHERE id = @idTable
+END
+GO

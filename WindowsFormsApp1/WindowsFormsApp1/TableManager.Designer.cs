@@ -40,6 +40,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txbTotalPrice = new System.Windows.Forms.TextBox();
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.nmDiscount = new System.Windows.Forms.NumericUpDown();
@@ -51,7 +52,6 @@
             this.cbFood = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.txbTotalPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -125,7 +125,6 @@
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
-            this.lsvBill.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -159,6 +158,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(418, 74);
             this.panel3.TabIndex = 3;
+            // 
+            // txbTotalPrice
+            // 
+            this.txbTotalPrice.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTotalPrice.ForeColor = System.Drawing.Color.OrangeRed;
+            this.txbTotalPrice.Location = new System.Drawing.Point(223, 28);
+            this.txbTotalPrice.Name = "txbTotalPrice";
+            this.txbTotalPrice.ReadOnly = true;
+            this.txbTotalPrice.Size = new System.Drawing.Size(105, 28);
+            this.txbTotalPrice.TabIndex = 8;
+            this.txbTotalPrice.Text = "0";
+            this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cbSwitchTable
             // 
@@ -259,6 +270,7 @@
             this.cbFood.Name = "cbFood";
             this.cbFood.Size = new System.Drawing.Size(217, 24);
             this.cbFood.TabIndex = 1;
+            this.cbFood.SelectedIndexChanged += new System.EventHandler(this.cbFood_SelectedIndexChanged);
             // 
             // cbCategory
             // 
@@ -276,18 +288,7 @@
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(429, 428);
             this.flpTable.TabIndex = 5;
-            // 
-            // txbTotalPrice
-            // 
-            this.txbTotalPrice.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalPrice.ForeColor = System.Drawing.Color.OrangeRed;
-            this.txbTotalPrice.Location = new System.Drawing.Point(223, 28);
-            this.txbTotalPrice.Name = "txbTotalPrice";
-            this.txbTotalPrice.ReadOnly = true;
-            this.txbTotalPrice.Size = new System.Drawing.Size(105, 28);
-            this.txbTotalPrice.TabIndex = 8;
-            this.txbTotalPrice.Text = "0";
-            this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.flpTable.Paint += new System.Windows.Forms.PaintEventHandler(this.flpTable_Paint);
             // 
             // TableManager
             // 

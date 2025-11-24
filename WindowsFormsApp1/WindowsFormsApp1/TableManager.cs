@@ -20,6 +20,13 @@ namespace WindowsFormsApp1
             InitializeComponent();
             LoadTable();
             LoadCategory();
+            LoadComboBoxTable(cbSwitchTable);
+        }
+
+        void LoadComboBoxTable(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "Name";
         }
         void LoadCategory()
         {
@@ -129,12 +136,13 @@ namespace WindowsFormsApp1
             Table table = lsvBill.Tag as Table;
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int discount = (int)nmDiscount.Value;
 
-            if(idBill != -1)
+            if (idBill != -1)
             {   
                 if(MessageBox.Show("Bạn có chắc thanh toán hóa đơn cho bàn " + table.Name,"Thông báo",MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill);
+                    BillDAO.Instance.CheckOut(idBill,discount);
                     ShowBill(table.ID);
                     LoadTable();
                 }
@@ -179,6 +187,23 @@ namespace WindowsFormsApp1
 
         }
 
-        
+        private void txbTotalPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSwitchTable_Click(object sender, EventArgs e)
+        {       int id1 = (lsvBill.Tag as Table).ID;
+
+                int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}",(lsvBill.Tag as Table).Name,(cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                
+
+                TableDAO.Instance.SwitchTable(id1, id2);
+
+                LoadTable();
+            }
+        }
     }
 }

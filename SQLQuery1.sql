@@ -1,4 +1,4 @@
-CREATE DATABASE QuanLyQuanCafe
+ÔªøCREATE DATABASE QuanLyQuanCafe
 GO
 
 USE QuanLyQuanCafe
@@ -7,7 +7,7 @@ GO
 CREATE TABLE TableFood
 (
 ID INT IDENTITY PRIMARY KEY,
-NAME NVARCHAR(100) NOT NULL DEFAULT N'ch?a ??t tÍn',
+NAME NVARCHAR(100) NOT NULL DEFAULT N'ch?a ??t t√™n',
 STATUS NVARCHAR(100) NOT NULL DEFAULT N'Tr?ng',
 
 )
@@ -16,7 +16,7 @@ GO
 CREATE TABLE ACCOUNT
 (
 USERNAME NVARCHAR(100) PRIMARY KEY,
-DISPLAYNAME NVARCHAR(100) NOT NULL DEFAULT N'ch?a ??t tÍn',
+DISPLAYNAME NVARCHAR(100) NOT NULL DEFAULT N'ch?a ??t t√™n',
 PASSWORD NVARCHAR(1000) NOT NULL DEFAULT 0,
 TYPE INT NOT NULL DEFAULT 0
 )
@@ -25,14 +25,14 @@ GO
 CREATE TABLE FOODCATEGORY
 (
 ID INT IDENTITY PRIMARY KEY,
-name NVARCHAR(100) DEFAULT N'ch?a ??t tÍn'
+name NVARCHAR(100) DEFAULT N'ch?a ??t t√™n'
 )
 GO
 
 CREATE TABLE FOOD
 (
 ID INT IDENTITY PRIMARY KEY,
-NAME NVARCHAR(100) NOT NULL DEFAULT N'ch?a ??t tÍn' ,
+NAME NVARCHAR(100) NOT NULL DEFAULT N'ch?a ??t t√™n' ,
 IDCATEGORY INT NOT NULL,
 PRICE INT NOT NULL DEFAULT 0
 FOREIGN KEY (IDCATEGORY) REFERENCES dbo.FOODCATEGORY(ID)
@@ -81,7 +81,7 @@ INSERT INTO dbo.ACCOUNT
 	Type
 	)
 VALUES ( N'staff', 
-		N'Nh‚n viÍn',
+		N'Nh√¢n vi√™n',
 		N'1',
 		0
 		)
@@ -110,47 +110,47 @@ CREATE PROC USP_GetTableList
 AS SELECT * FROM dbo.TableFood
 GO
 
---ThÍm b‡n
+--Th√™m b√†n
 DECLARE @i INT = 1
 
 WHILE @i <= 10
 BEGIN
-	INSERT dbo.TableFood (NAME) VALUES (N'B‡n ' + cast(@i AS nvarchar(100)))
+	INSERT dbo.TableFood (NAME) VALUES (N'B√†n ' + cast(@i AS nvarchar(100)))
 	SET @i = @i + 1
 END
 
---ThÍm category
+--Th√™m category
 INSERT dbo.FOODCATEGORY
 		(name)
 VALUES ( N'H?i s?n')
 
 INSERT dbo.FOODCATEGORY
 		(name)
-VALUES ( N'NÙng s?n')
+VALUES ( N'N√¥ng s?n')
 
 INSERT dbo.FOODCATEGORY
 		(name)
-VALUES ( N'L‚m s?n')
+VALUES ( N'L√¢m s?n')
 
 INSERT dbo.FOODCATEGORY
 		(name)
 VALUES ( N'N??c')
 
---ThÍm mÛn ?n
+--Th√™m m√≥n ?n
 INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'M?c',1,100000)
-INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'NghÍu',1,60000)
+INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'Ngh√™u',1,60000)
 INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'H??u',3,300000)
 INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'L?n',2,150000)
 INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'Coke',4,10000)
 INSERT dbo.FOOD (name,IDCATEGORY,PRICE) VALUES (N'7Up',4,10000)
 
---ThÍm Bill
+--Th√™m Bill
 INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null,1,0)
 INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null,2,0)
 INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),getdate(),2,1)
 INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null,3,0)
  
- --ThÍm BillInfo
+ --Th√™m BillInfo
  INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (1,1,2)
  INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (1,3,4)
  INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (1,5,1)
@@ -159,7 +159,7 @@ INSERT dbo.Bill (DATECHECKIN,DATECHECKOUT,IDTABLE,STATUS) values (getdate(),null
  INSERT dbo.BILLINFO (IDBILL,IDFOOD,count) values (3,1,5)
 
  --reset ID
- DELETE FROM DBO.BILL
+DELETE FROM DBO.BILL
 DBCC CHECKIDENT ('dbo.BillInfo', RESEED, 0);
 select * from dbo.billinfo
 
@@ -172,11 +172,13 @@ BEGIN
 	( DateCheckIn,
 		DateCheckOut,
 		idTable, 
-		status
+		status,
+		discount
 	)
 	VALUES ( GETDATE(),
 				NULL,
 				@idTable,
+				0,
 				0
 				)
 END 
@@ -217,7 +219,7 @@ END
 GO
 
 	
-CREATE TRIGGER UTG_UpdateBillInfo
+ALTER TRIGGER UTG_UpdateBillInfo
 ON dbo.BillInfo FOR INSERT, UPDATE
 AS 
 BEGIN
@@ -229,9 +231,18 @@ BEGIN
 
 	SELECT @idTable=IDTABLE From dbo.BILL where id = @idBill and status = 0
 
-	UPDATE dbo.TableFood SET STATUS = N'CÛ ng??i' WHERE id=@idTable 
+	DECLARE @count INT
+
+	SELECT @count = count(*) FROM dbo.BILLINFO WHERE IDBILL = @idBill
+	IF(@count>0)
+		UPDATE dbo.TableFood SET STATUS = N'C√≥ ng∆∞·ªùi' WHERE ID = @IDTABLE
+	ELSE
+		UPDATE dbo.TableFood SET STATUS = N'Tr·ªëng' WHERE ID = @IDTABLE
+	
 END
 GO
+
+
 
 CREATE TRIGGER UTG_UpdateBill
 ON dbo.Bill FOR UPDATE 
@@ -253,3 +264,83 @@ BEGIN
 		UPDATE dbo.TableFood SET STATUS = N'Tr?ng' WHERE id = @idTable
 END
 GO
+
+GO
+CREATE	 PROC USP_SwitchTable
+@idTable1 INT, @idTable2 INT
+AS
+BEGIN
+	
+	DECLARE @idFirstBill INT
+
+	DECLARE @idSecondBill INT
+
+	DECLARE @isFirstTableEmpty INT = 1
+
+	DECLARE @isSecondTableEmpty INT = 1
+	
+	SELECT @idFirstBill = id FROM dbo.BILL WHERE IDTABLE = @idTable1 AND STATUS = 0
+
+	SELECT @idSecondBill = id FROM dbo.BILL WHERE IDTABLE = @idTable2 AND STATUS = 0
+
+	IF(@idFirstBill IS NULL)
+	BEGIN
+		INSERT dbo.Bill 
+	( DateCheckIn,
+		DateCheckOut,
+		idTable, 
+		status,
+		discount
+	)
+	VALUES ( GETDATE(),
+				NULL,
+				@idTable1,
+				0,
+				0
+				) 
+	SELECT  @idFirstBill = MAX(ID) FROM dbo.Bill WHERE IDTABLE = @idTable1 AND STATUS = 0
+
+	END
+
+	SELECT @isFirstTableEmpty = count(*) FROM dbo.BILLInfo WHERE IDBILL = @idFirstBill
+
+	IF(@idSecondBill IS NULL)
+	BEGIN
+		INSERT dbo.Bill 
+	( DateCheckIn,
+		DateCheckOut,
+		idTable, 
+		status,
+		discount
+	)
+	VALUES ( GETDATE(),
+				NULL,
+				@idTable2,
+				0,
+				0
+				) 
+	SELECT  @idSecondBill = MAX(ID) FROM dbo.Bill WHERE IDTABLE = @idTable2 AND STATUS = 0
+
+	END
+
+	SELECT @isSecondTableEmpty = count(*) FROM dbo.BILLInfo WHERE IDBILL = @idSecondBill
+
+	select ID INTO IDBillInfoTable from dbo.BILLINFO WHERE IDBILL =@idSecondBill
+
+	UPDATE dbo.BILLINFO SET IDBILL = @idSecondBill WHERE  IDBILL = @idFirstBill
+
+	UPDATE BILLINFO SET IDBILL = @idFirstBill WHERE  ID IN (select * from IDBillInfoTable )
+
+	DROP TABLE IDBillInfoTable
+
+	IF(@isFirstTableEmpty=0)
+		UPDATE dbo.TableFood SET STATUS = N'Tr·ªëng' WHERE ID = @idTable2
+
+	IF(@isSecondTableEmpty=0)
+		UPDATE dbo.TableFood SET STATUS = N'Tr·ªëng' WHERE ID = @idTable1
+
+END
+GO
+
+
+UPDATE TableFood SET STATUS = N'Tr·ªëng'

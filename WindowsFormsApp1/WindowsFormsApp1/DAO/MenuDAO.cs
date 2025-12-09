@@ -10,7 +10,7 @@ namespace WindowsFormsApp1.DAO
 {
     public class MenuDAO
     {   
-        public List<Menu> GetListMenyByTable(int id)
+        public List<Menu> GetListMenuByTable(int id)
         {
             List<Menu> listMenu = new List<Menu>();
             string query = "SELECT f.name , bi.count ,f.price, f.price*bi.count AS totalPrice FROM dbo.BILLINFO AS bi, dbo.Bill AS b, dbo.FOOD AS f WHERE bi.idbill = b.id AND b.status = 0 and bi.idFOOD = f.id and b.idtable = "+id;

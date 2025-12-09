@@ -12,3 +12,4 @@ C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đ�
 C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TableManager.resources
 C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AccountProfile.resources
 C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Admin.resources
+C:\Users\Acer\OneDrive - Hanoi University of Science and Technology\Desktop\đồ án 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Thanhtoan.resources

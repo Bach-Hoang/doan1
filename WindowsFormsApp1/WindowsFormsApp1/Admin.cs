@@ -17,7 +17,8 @@ namespace WindowsFormsApp1
         public Admin()
         {
             InitializeComponent();
-            
+            LoadDateTimePickerBill();
+            LoadListBillByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value, 1);
         }
 
         
@@ -69,6 +70,60 @@ namespace WindowsFormsApp1
         private void Admin_Load(object sender, EventArgs e)
         {
 
+        }
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+        }
+        void LoadListBillByDateAndPage(DateTime checkIn, DateTime checkOut,int page)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetListByDateAndPage(checkIn, checkOut,page);
+        }
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value,1);
+        }
+
+        private void btnFirstBillPage_Click(object sender, EventArgs e)
+        {
+            txbPageBill.Text = "1";
+
+        }
+
+        private void btnLastBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            int lastPage = sumRecord / 10;
+
+            if(sumRecord % 10 != 0)
+                lastPage++;
+            txbPageBill.Text = lastPage.ToString(); 
+        }
+
+        private void txbPageBill_TextChanged(object sender, EventArgs e)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetListByDateAndPage(dtpkFromDate.Value, dtpkToDate.Value, Convert.ToInt32(txbPageBill.Text));
+        }
+
+        private void btnPreviousBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txbPageBill.Text);
+
+            if(page>1)
+                page--;
+            txbPageBill.Text = page.ToString();
+        }
+
+        private void btnNextBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(txbPageBill.Text);
+            int sumRecord = BillDAO.Instance.GetNumBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+
+            if((page*10)<sumRecord)
+                page++;
+            txbPageBill.Text = page.ToString();
         }
     }
 }

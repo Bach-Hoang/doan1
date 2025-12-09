@@ -29,6 +29,20 @@ namespace WindowsFormsApp1.DAO
             }
             return -1;
         }
+
+        public DateTime GetDateCheckIn(int idBill)
+        {
+           
+            string query = "SELECT DateCheckIn FROM dbo.Bill WHERE id = " + idBill;
+
+            object result = DataProvider.Instance.ExecuteScalar(query);
+
+            if (result != null)
+            {
+                return Convert.ToDateTime(result);
+            }
+            return DateTime.Now;
+        }
         public void InsertBill(int id)
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[] { id });
@@ -44,10 +58,18 @@ namespace WindowsFormsApp1.DAO
                 return 1;
             }
         } 
-        public void CheckOut(int id,int discount)
+        public void CheckOut(int id,int discount,float totalPrice)
         {
-            string query = "UPDATE dbo.Bill SET status = 1, " + "discount = " + discount + " WHERE id = " + id;
+            string query = "UPDATE dbo.Bill SET DATECHECKOUT = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " WHERE id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
+        }
+        public DataTable GetListByDateAndPage(DateTime checkIn, DateTime checkOut, int pageNum)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListByDateAndPage @checkIn , @checkOut , @page", new object[] { checkIn, checkOut, pageNum });
+        }
+        public int GetNumBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("exec USP_GetNumBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
     }
 }

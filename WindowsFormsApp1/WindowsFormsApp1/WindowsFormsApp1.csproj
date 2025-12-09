@@ -86,6 +86,12 @@
     <Compile Include="TableManager.Designer.cs">
       <DependentUpon>TableManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Thanhtoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thanhtoan.Designer.cs">
+      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountProfile.resx">
       <DependentUpon>AccountProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="TableManager.resx">
       <DependentUpon>TableManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thanhtoan.resx">
+      <DependentUpon>Thanhtoan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

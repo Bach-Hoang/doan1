@@ -113,6 +113,11 @@
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.btnFirstBillPage = new System.Windows.Forms.Button();
+            this.btnLastBillPage = new System.Windows.Forms.Button();
+            this.btnPreviousBillPage = new System.Windows.Forms.Button();
+            this.btnNextBillPage = new System.Windows.Forms.Button();
+            this.txbPageBill = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -179,6 +184,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txbPageBill);
+            this.panel2.Controls.Add(this.btnNextBillPage);
+            this.panel2.Controls.Add(this.btnPreviousBillPage);
+            this.panel2.Controls.Add(this.btnLastBillPage);
+            this.panel2.Controls.Add(this.btnFirstBillPage);
             this.panel2.Controls.Add(this.dtgvBill);
             this.panel2.Location = new System.Drawing.Point(6, 38);
             this.panel2.Name = "panel2";
@@ -187,12 +197,13 @@
             // 
             // dtgvBill
             // 
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Location = new System.Drawing.Point(-3, 3);
+            this.dtgvBill.Location = new System.Drawing.Point(0, 3);
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.RowHeadersWidth = 51;
             this.dtgvBill.RowTemplate.Height = 24;
-            this.dtgvBill.Size = new System.Drawing.Size(813, 400);
+            this.dtgvBill.Size = new System.Drawing.Size(810, 372);
             this.dtgvBill.TabIndex = 0;
             this.dtgvBill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvBill_CellContentClick);
             // 
@@ -208,12 +219,14 @@
             // 
             // btnViewBill
             // 
+            this.btnViewBill.BackColor = System.Drawing.SystemColors.Control;
             this.btnViewBill.Location = new System.Drawing.Point(365, 0);
             this.btnViewBill.Name = "btnViewBill";
-            this.btnViewBill.Size = new System.Drawing.Size(75, 23);
+            this.btnViewBill.Size = new System.Drawing.Size(102, 23);
             this.btnViewBill.TabIndex = 2;
             this.btnViewBill.Text = "Thống kê";
-            this.btnViewBill.UseVisualStyleBackColor = true;
+            this.btnViewBill.UseVisualStyleBackColor = false;
+            this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
             // dtpkToDate
             // 
@@ -956,6 +969,61 @@
             this.panel24.Size = new System.Drawing.Size(200, 100);
             this.panel24.TabIndex = 0;
             // 
+            // btnFirstBillPage
+            // 
+            this.btnFirstBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFirstBillPage.Location = new System.Drawing.Point(0, 377);
+            this.btnFirstBillPage.Name = "btnFirstBillPage";
+            this.btnFirstBillPage.Size = new System.Drawing.Size(66, 23);
+            this.btnFirstBillPage.TabIndex = 1;
+            this.btnFirstBillPage.Text = "First";
+            this.btnFirstBillPage.UseVisualStyleBackColor = false;
+            this.btnFirstBillPage.Click += new System.EventHandler(this.btnFirstBillPage_Click);
+            // 
+            // btnLastBillPage
+            // 
+            this.btnLastBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLastBillPage.Location = new System.Drawing.Point(744, 377);
+            this.btnLastBillPage.Name = "btnLastBillPage";
+            this.btnLastBillPage.Size = new System.Drawing.Size(66, 23);
+            this.btnLastBillPage.TabIndex = 2;
+            this.btnLastBillPage.Text = "Last";
+            this.btnLastBillPage.UseVisualStyleBackColor = false;
+            this.btnLastBillPage.Click += new System.EventHandler(this.btnLastBillPage_Click);
+            // 
+            // btnPreviousBillPage
+            // 
+            this.btnPreviousBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPreviousBillPage.Location = new System.Drawing.Point(82, 377);
+            this.btnPreviousBillPage.Name = "btnPreviousBillPage";
+            this.btnPreviousBillPage.Size = new System.Drawing.Size(80, 23);
+            this.btnPreviousBillPage.TabIndex = 3;
+            this.btnPreviousBillPage.Text = "Previous";
+            this.btnPreviousBillPage.UseVisualStyleBackColor = false;
+            this.btnPreviousBillPage.Click += new System.EventHandler(this.btnPreviousBillPage_Click);
+            // 
+            // btnNextBillPage
+            // 
+            this.btnNextBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNextBillPage.Location = new System.Drawing.Point(662, 377);
+            this.btnNextBillPage.Name = "btnNextBillPage";
+            this.btnNextBillPage.Size = new System.Drawing.Size(66, 23);
+            this.btnNextBillPage.TabIndex = 4;
+            this.btnNextBillPage.Text = "Next";
+            this.btnNextBillPage.UseVisualStyleBackColor = false;
+            this.btnNextBillPage.Click += new System.EventHandler(this.btnNextBillPage_Click);
+            // 
+            // txbPageBill
+            // 
+            this.txbPageBill.Location = new System.Drawing.Point(365, 375);
+            this.txbPageBill.Name = "txbPageBill";
+            this.txbPageBill.ReadOnly = true;
+            this.txbPageBill.Size = new System.Drawing.Size(100, 22);
+            this.txbPageBill.TabIndex = 5;
+            this.txbPageBill.Text = "1";
+            this.txbPageBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txbPageBill.TextChanged += new System.EventHandler(this.txbPageBill_TextChanged);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -969,6 +1037,7 @@
             this.tcAdmin.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tpFood.ResumeLayout(false);
@@ -1106,5 +1175,10 @@
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.Button btnFirstBillPage;
+        private System.Windows.Forms.Button btnNextBillPage;
+        private System.Windows.Forms.Button btnPreviousBillPage;
+        private System.Windows.Forms.Button btnLastBillPage;
+        private System.Windows.Forms.TextBox txbPageBill;
     }
 }

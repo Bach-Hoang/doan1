@@ -11,6 +11,7 @@ using WindowsFormsApp1.DAO;
 using WindowsFormsApp1.DTO;
 using System.Globalization;
 using System.Threading;
+using System.CodeDom;
 namespace WindowsFormsApp1
 {
     public partial class TableManager : Form
@@ -41,15 +42,16 @@ namespace WindowsFormsApp1
             cbFood.DisplayMember = "Name";
         }
         void LoadTable()
-        {   flpTable.Controls.Clear();
+        {
+            flpTable.Controls.Clear();
 
-            List<Table> tableList =  TableDAO.Instance.LoadTableList();
+            List<Table> tableList = TableDAO.Instance.LoadTableList();
 
-            foreach(Table item in tableList)
+            foreach (Table item in tableList)
             {
-                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight};
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
                 btn.ForeColor = Color.Black;
-                if(item.Status == "Trống")
+                if (item.Status == "Trống")
                 {
                     btn.BackColor = Color.Aqua;
                 }
@@ -64,21 +66,22 @@ namespace WindowsFormsApp1
             }
         }
         void ShowBill(int id)
-        {   lsvBill.Items.Clear();
-            float  totalPrice = 0;
-            List<DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenyByTable(id) ;
-            foreach(DTO.Menu item in listBillInfo)
+        {
+            lsvBill.Items.Clear();
+            float totalPrice = 0;
+            List<DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+            foreach (DTO.Menu item in listBillInfo)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
                 lsvItem.SubItems.Add(item.Count.ToString());
                 lsvItem.SubItems.Add(item.Price.ToString());
                 lsvItem.SubItems.Add(item.TotalPrice.ToString());
-                lsvBill.Items.Add(lsvItem);  
+                lsvBill.Items.Add(lsvItem);
                 totalPrice += item.TotalPrice;
             }
             CultureInfo culture = new CultureInfo("vi-VN");
 
-            txbTotalPrice.Text = totalPrice.ToString("c",culture);  
+            txbTotalPrice.Text = totalPrice.ToString("c", culture);
 
         }
         private void btn_Click(object sender, EventArgs e)
@@ -89,7 +92,7 @@ namespace WindowsFormsApp1
 
         }
 
-   
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,7 +100,7 @@ namespace WindowsFormsApp1
 
             ComboBox cb = sender as ComboBox;
 
-            if(cb.SelectedItem == null)
+            if (cb.SelectedItem == null)
                 return;
 
             Category selected = cb.SelectedItem as Category;
@@ -108,7 +111,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e) //ADD FOOD
         {
-            Table table = lsvBill.Tag as Table;  
+            Table table = lsvBill.Tag as Table;
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int idFood = (cbFood.SelectedItem as Food).Id;
@@ -116,7 +119,7 @@ namespace WindowsFormsApp1
             if (idBill == -1)
             {
                 BillDAO.Instance.InsertBill(table.ID);
-                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(),idFood,count);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), idFood, count);
             }
             else
             {
@@ -138,15 +141,25 @@ namespace WindowsFormsApp1
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int discount = (int)nmDiscount.Value;
 
+            string cleanText = txbTotalPrice.Text.Replace("₫", "");
+            cleanText = cleanText.Replace(".", "");
+            double totalPrice = Convert.ToDouble(cleanText);
+            double finalTotalPrice = totalPrice - (totalPrice/100)*discount;
+            List <DTO.Menu> listMenuChiTiet = MenuDAO.Instance.GetListMenuByTable(table.ID);
+            DateTime dateCheckIn = BillDAO.Instance.GetDateCheckIn(idBill);
             if (idBill != -1)
-            {   
-                if(MessageBox.Show("Bạn có chắc thanh toán hóa đơn cho bàn " + table.Name,"Thông báo",MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                
+                Thanhtoan f = new Thanhtoan(idBill, table.Name, discount, listMenuChiTiet,dateCheckIn);
+                f.StartPosition = FormStartPosition.CenterParent;
+                if (f.ShowDialog() == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill,discount);
+                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice);
                     ShowBill(table.ID);
                     LoadTable();
+                    nmDiscount.Value = 0; 
                 }
-                    
+
             }
         }
 
@@ -168,7 +181,7 @@ namespace WindowsFormsApp1
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Admin f = new Admin();      
+            Admin f = new Admin();
             f.ShowDialog();
         }
 
@@ -193,17 +206,23 @@ namespace WindowsFormsApp1
         }
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
-        {       int id1 = (lsvBill.Tag as Table).ID;
+        {
+            int id1 = (lsvBill.Tag as Table).ID;
 
-                int id2 = (cbSwitchTable.SelectedItem as Table).ID;
-            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}",(lsvBill.Tag as Table).Name,(cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                
+
 
                 TableDAO.Instance.SwitchTable(id1, id2);
 
                 LoadTable();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

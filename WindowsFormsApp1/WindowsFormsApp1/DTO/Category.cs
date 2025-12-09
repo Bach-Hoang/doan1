@@ -11,6 +11,7 @@ namespace WindowsFormsApp1.DTO
     {
         private int iD;
         private string name;
+        public Category() { }
         public Category(int id, string name)
         {
             this.ID = id;

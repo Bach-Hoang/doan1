@@ -343,4 +343,31 @@ END
 GO
 
 
-UPDATE TableFood SET STATUS = N'Trống'
+GO
+create proc USP_GetListByDateAndPage
+@checkIn date,@checkOut date,@page INT
+AS
+BEGIN
+DECLARE @pageRows INT = 10
+DECLARE @selectRows INT = @pageRows 
+DECLARE @exceptRows INT = (@page-1)*@pageRows
+
+;WITH BillShow AS (SELECT b.id, t.name as [Tên bàn], b.totalPrice AS [Tổng tiền], DATECHECKIN AS [Ngày vào], DATECHECKOUT AS [Ngày ra], discount AS [Giảm giá] 
+FROM BILL as b,TableFood as t 
+where DATECHECKIN >= @checkIn AND DATECHECKOUT <= @checkOut AND b.STATUS = 1 and t.id=b.IDTABLE) 
+SELECT TOP (@selectRows) * From BillShow where id not in (select top (@exceptRows) id from billshow)
+END
+GO
+
+GO
+CREATE proc USP_GetNumBillByDate
+@checkIn date,@checkOut date
+AS
+BEGIN
+SELECT COUNT(*)
+FROM BILL as b,TableFood as t 
+where DATECHECKIN >= @checkIn AND DATECHECKOUT <= @checkOut AND b.STATUS = 1 and t.id=b.IDTABLE 
+END
+GO
+
+ 

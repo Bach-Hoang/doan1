@@ -134,7 +134,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e) //CHECKOUT
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
 
@@ -154,7 +154,7 @@ namespace WindowsFormsApp1
                 f.StartPosition = FormStartPosition.CenterParent;
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice);
+                    BillDAO.Instance.CheckOut(idBill, discount, (float)finalTotalPrice, AccountDAO.LoginAccount.ID);
                     ShowBill(table.ID);
                     LoadTable();
                     nmDiscount.Value = 0; 

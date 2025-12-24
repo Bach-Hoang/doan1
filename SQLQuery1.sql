@@ -370,4 +370,8 @@ where DATECHECKIN >= @checkIn AND DATECHECKOUT <= @checkOut AND b.STATUS = 1 and
 END
 GO
 
- 
+
+
+
+
+select * from bill

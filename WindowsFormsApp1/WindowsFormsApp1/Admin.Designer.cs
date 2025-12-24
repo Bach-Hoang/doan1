@@ -31,6 +31,11 @@
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txbPageBill = new System.Windows.Forms.TextBox();
+            this.btnNextBillPage = new System.Windows.Forms.Button();
+            this.btnPreviousBillPage = new System.Windows.Forms.Button();
+            this.btnLastBillPage = new System.Windows.Forms.Button();
+            this.btnFirstBillPage = new System.Windows.Forms.Button();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnViewBill = new System.Windows.Forms.Button();
@@ -113,11 +118,7 @@
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.btnFirstBillPage = new System.Windows.Forms.Button();
-            this.btnLastBillPage = new System.Windows.Forms.Button();
-            this.btnPreviousBillPage = new System.Windows.Forms.Button();
-            this.btnNextBillPage = new System.Windows.Forms.Button();
-            this.txbPageBill = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -184,6 +185,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txbPageBill);
             this.panel2.Controls.Add(this.btnNextBillPage);
             this.panel2.Controls.Add(this.btnPreviousBillPage);
@@ -194,6 +196,61 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(810, 400);
             this.panel2.TabIndex = 1;
+            // 
+            // txbPageBill
+            // 
+            this.txbPageBill.Location = new System.Drawing.Point(365, 375);
+            this.txbPageBill.Name = "txbPageBill";
+            this.txbPageBill.ReadOnly = true;
+            this.txbPageBill.Size = new System.Drawing.Size(100, 22);
+            this.txbPageBill.TabIndex = 5;
+            this.txbPageBill.Text = "1";
+            this.txbPageBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txbPageBill.TextChanged += new System.EventHandler(this.txbPageBill_TextChanged);
+            // 
+            // btnNextBillPage
+            // 
+            this.btnNextBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNextBillPage.Location = new System.Drawing.Point(662, 377);
+            this.btnNextBillPage.Name = "btnNextBillPage";
+            this.btnNextBillPage.Size = new System.Drawing.Size(66, 23);
+            this.btnNextBillPage.TabIndex = 4;
+            this.btnNextBillPage.Text = "Next";
+            this.btnNextBillPage.UseVisualStyleBackColor = false;
+            this.btnNextBillPage.Click += new System.EventHandler(this.btnNextBillPage_Click);
+            // 
+            // btnPreviousBillPage
+            // 
+            this.btnPreviousBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPreviousBillPage.Location = new System.Drawing.Point(82, 377);
+            this.btnPreviousBillPage.Name = "btnPreviousBillPage";
+            this.btnPreviousBillPage.Size = new System.Drawing.Size(80, 23);
+            this.btnPreviousBillPage.TabIndex = 3;
+            this.btnPreviousBillPage.Text = "Previous";
+            this.btnPreviousBillPage.UseVisualStyleBackColor = false;
+            this.btnPreviousBillPage.Click += new System.EventHandler(this.btnPreviousBillPage_Click);
+            // 
+            // btnLastBillPage
+            // 
+            this.btnLastBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLastBillPage.Location = new System.Drawing.Point(744, 377);
+            this.btnLastBillPage.Name = "btnLastBillPage";
+            this.btnLastBillPage.Size = new System.Drawing.Size(66, 23);
+            this.btnLastBillPage.TabIndex = 2;
+            this.btnLastBillPage.Text = "Last";
+            this.btnLastBillPage.UseVisualStyleBackColor = false;
+            this.btnLastBillPage.Click += new System.EventHandler(this.btnLastBillPage_Click);
+            // 
+            // btnFirstBillPage
+            // 
+            this.btnFirstBillPage.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFirstBillPage.Location = new System.Drawing.Point(0, 377);
+            this.btnFirstBillPage.Name = "btnFirstBillPage";
+            this.btnFirstBillPage.Size = new System.Drawing.Size(66, 23);
+            this.btnFirstBillPage.TabIndex = 1;
+            this.btnFirstBillPage.Text = "First";
+            this.btnFirstBillPage.UseVisualStyleBackColor = false;
+            this.btnFirstBillPage.Click += new System.EventHandler(this.btnFirstBillPage_Click);
             // 
             // dtgvBill
             // 
@@ -969,60 +1026,15 @@
             this.panel24.Size = new System.Drawing.Size(200, 100);
             this.panel24.TabIndex = 0;
             // 
-            // btnFirstBillPage
+            // button1
             // 
-            this.btnFirstBillPage.BackColor = System.Drawing.SystemColors.Control;
-            this.btnFirstBillPage.Location = new System.Drawing.Point(0, 377);
-            this.btnFirstBillPage.Name = "btnFirstBillPage";
-            this.btnFirstBillPage.Size = new System.Drawing.Size(66, 23);
-            this.btnFirstBillPage.TabIndex = 1;
-            this.btnFirstBillPage.Text = "First";
-            this.btnFirstBillPage.UseVisualStyleBackColor = false;
-            this.btnFirstBillPage.Click += new System.EventHandler(this.btnFirstBillPage_Click);
-            // 
-            // btnLastBillPage
-            // 
-            this.btnLastBillPage.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLastBillPage.Location = new System.Drawing.Point(744, 377);
-            this.btnLastBillPage.Name = "btnLastBillPage";
-            this.btnLastBillPage.Size = new System.Drawing.Size(66, 23);
-            this.btnLastBillPage.TabIndex = 2;
-            this.btnLastBillPage.Text = "Last";
-            this.btnLastBillPage.UseVisualStyleBackColor = false;
-            this.btnLastBillPage.Click += new System.EventHandler(this.btnLastBillPage_Click);
-            // 
-            // btnPreviousBillPage
-            // 
-            this.btnPreviousBillPage.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPreviousBillPage.Location = new System.Drawing.Point(82, 377);
-            this.btnPreviousBillPage.Name = "btnPreviousBillPage";
-            this.btnPreviousBillPage.Size = new System.Drawing.Size(80, 23);
-            this.btnPreviousBillPage.TabIndex = 3;
-            this.btnPreviousBillPage.Text = "Previous";
-            this.btnPreviousBillPage.UseVisualStyleBackColor = false;
-            this.btnPreviousBillPage.Click += new System.EventHandler(this.btnPreviousBillPage_Click);
-            // 
-            // btnNextBillPage
-            // 
-            this.btnNextBillPage.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNextBillPage.Location = new System.Drawing.Point(662, 377);
-            this.btnNextBillPage.Name = "btnNextBillPage";
-            this.btnNextBillPage.Size = new System.Drawing.Size(66, 23);
-            this.btnNextBillPage.TabIndex = 4;
-            this.btnNextBillPage.Text = "Next";
-            this.btnNextBillPage.UseVisualStyleBackColor = false;
-            this.btnNextBillPage.Click += new System.EventHandler(this.btnNextBillPage_Click);
-            // 
-            // txbPageBill
-            // 
-            this.txbPageBill.Location = new System.Drawing.Point(365, 375);
-            this.txbPageBill.Name = "txbPageBill";
-            this.txbPageBill.ReadOnly = true;
-            this.txbPageBill.Size = new System.Drawing.Size(100, 22);
-            this.txbPageBill.TabIndex = 5;
-            this.txbPageBill.Text = "1";
-            this.txbPageBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txbPageBill.TextChanged += new System.EventHandler(this.txbPageBill_TextChanged);
+            this.button1.Location = new System.Drawing.Point(581, 377);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Export";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Admin
             // 
@@ -1180,5 +1192,6 @@
         private System.Windows.Forms.Button btnPreviousBillPage;
         private System.Windows.Forms.Button btnLastBillPage;
         private System.Windows.Forms.TextBox txbPageBill;
+        private System.Windows.Forms.Button button1;
     }
 }

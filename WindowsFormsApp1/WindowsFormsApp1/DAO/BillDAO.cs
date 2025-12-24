@@ -58,9 +58,9 @@ namespace WindowsFormsApp1.DAO
                 return 1;
             }
         } 
-        public void CheckOut(int id,int discount,float totalPrice)
+        public void CheckOut(int id,int discount,float totalPrice,int idNhanVien)
         {
-            string query = "UPDATE dbo.Bill SET DATECHECKOUT = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + " WHERE id = " + id;
+            string query = "UPDATE dbo.Bill SET DATECHECKOUT = GETDATE(), status = 1, " + "discount = " + discount + ", totalPrice = " + totalPrice + ", idNhanVien = " + AccountDAO.LoginAccount.ID + " WHERE id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         public DataTable GetListByDateAndPage(DateTime checkIn, DateTime checkOut, int pageNum)

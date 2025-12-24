@@ -57,6 +57,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lbphonenumber = new System.Windows.Forms.Label();
+            this.lbnamenv = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -233,7 +237,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(244, 519);
+            this.label13.Location = new System.Drawing.Point(256, 519);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(168, 32);
             this.label13.TabIndex = 12;
@@ -254,7 +258,7 @@
             // 
             this.lbLastprice.AutoSize = true;
             this.lbLastprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLastprice.Location = new System.Drawing.Point(412, 519);
+            this.lbLastprice.Location = new System.Drawing.Point(423, 519);
             this.lbLastprice.Name = "lbLastprice";
             this.lbLastprice.Size = new System.Drawing.Size(189, 32);
             this.lbLastprice.TabIndex = 17;
@@ -347,11 +351,55 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(12, 451);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(116, 25);
+            this.label15.TabIndex = 24;
+            this.label15.Text = "Nhân viên:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(12, 500);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(63, 25);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "SĐT:";
+            // 
+            // lbphonenumber
+            // 
+            this.lbphonenumber.AutoSize = true;
+            this.lbphonenumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbphonenumber.Location = new System.Drawing.Point(81, 500);
+            this.lbphonenumber.Name = "lbphonenumber";
+            this.lbphonenumber.Size = new System.Drawing.Size(134, 25);
+            this.lbphonenumber.TabIndex = 26;
+            this.lbphonenumber.Text = "Tên nhà hàng";
+            // 
+            // lbnamenv
+            // 
+            this.lbnamenv.AutoSize = true;
+            this.lbnamenv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbnamenv.Location = new System.Drawing.Point(127, 451);
+            this.lbnamenv.Name = "lbnamenv";
+            this.lbnamenv.Size = new System.Drawing.Size(134, 25);
+            this.lbnamenv.TabIndex = 27;
+            this.lbnamenv.Text = "Tên nhà hàng";
+            // 
             // Thanhtoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 599);
+            this.Controls.Add(this.lbnamenv);
+            this.Controls.Add(this.lbphonenumber);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.label8);
@@ -406,5 +454,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbphonenumber;
+        private System.Windows.Forms.Label lbnamenv;
     }
 }

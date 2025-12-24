@@ -15,6 +15,24 @@ namespace WindowsFormsApp1.DAO
             get { if (instance == null) instance = new AccountDAO(); return AccountDAO.instance; }
             private set { AccountDAO.instance = value; }
         }
+        private static DTO.Account loginAccount;
+        public static DTO.Account LoginAccount
+        {
+            get => loginAccount;
+            set => loginAccount = value;
+        }
+        public DTO.Account GetAccountByUserName(string userName)
+        {
+          
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Account WHERE UserName = '" + userName + "'");
+
+            foreach (DataRow item in data.Rows)
+            {
+                return new DTO.Account(item); 
+            }
+
+            return null;
+        }
         private AccountDAO() { }
         public bool Login(string username, string password)
         {

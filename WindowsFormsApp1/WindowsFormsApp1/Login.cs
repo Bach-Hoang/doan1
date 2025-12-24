@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.DAO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
 {
@@ -39,6 +40,7 @@ namespace WindowsFormsApp1
             string password = txbPassword.Text;
             if (login(username, password))
             {
+                AccountDAO.LoginAccount = AccountDAO.Instance.GetAccountByUserName(username);
                 TableManager f = new TableManager();
             this.Hide();
             f.ShowDialog();
@@ -61,6 +63,11 @@ namespace WindowsFormsApp1
             {
                 e.Cancel = true;
             }   
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
